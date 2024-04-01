@@ -1,6 +1,7 @@
 package projetoAT;
 
 import projetoAT.controller.ClienteController;
+import projetoAT.controller.EnderecoController;
 import projetoAT.controller.MaquiagemController;
 import projetoAT.controller.PedidoController;
 import projetoAT.controller.ProdutoController;
@@ -34,10 +35,10 @@ public class App {
 		Spark.delete("/pedido/:id/excluir", PedidoController.excluir);
 		Spark.get("/pedido/:id", PedidoController.obter);
 		
-		Spark.get("/endereco/lista", PedidoController.obterLista);
-		Spark.post("/endereco/incluir", PedidoController.incluir);
-		Spark.delete("/endereco/:id/excluir", PedidoController.excluir);
-		Spark.get("/endereco/:id", PedidoController.obter);
+		Spark.get("/endereco/lista", EnderecoController.obterLista);
+		Spark.post("/endereco/incluir", EnderecoController.incluir);
+		Spark.delete("/endereco/:id/excluir", EnderecoController.excluir);
+		Spark.get("/endereco/:id", EnderecoController.obter);
 		
 	}
 }
