@@ -58,5 +58,9 @@ public class Pedido {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "[" + id + " - " + produtos.toString() + " - " + valorPedido + "]";
+	}
 	
 }
