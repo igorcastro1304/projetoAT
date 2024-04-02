@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "dbd75ec6-de87-4cfd-8e3b-4984ec4bc334",
+		"name": "api - projetoAT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33460865"
+	},
+	"item": [
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "incluir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": \"000.111.222-34\",\r\n    \"nome\": \"Fulano de Campos\",\r\n    \"endereco\": null,\r\n    \"pedidos\": null\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/cliente/incluir"
+					},
+					"response": []
+				},
+				{
+					"name": "obterLista",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/cliente/lista"
+					},
+					"response": []
+				},
+				{
+					"name": "excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/cliente/1/excluir"
+					},
+					"response": []
+				},
+				{
+					"name": "obter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/cliente/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedidos",
+			"item": [
+				{
+					"name": "incluir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cliente\": {\r\n        \"cpf\": \"000.111.222-34\",\r\n        \"nome\": \"Fulano de Campos\",\r\n        \"endereco\": null\r\n    },\r\n\r\n    \"endereco\": {\r\n        \"cep\": \"78735349\"\r\n    },\r\n\r\n    \"produtos\": null,\r\n\r\n    \"valorPedido\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/pedido/incluir"
+					},
+					"response": []
+				},
+				{
+					"name": "obterLista",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/pedido/lista"
+					},
+					"response": []
+				},
+				{
+					"name": "excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/pedido/1/excluir"
+					},
+					"response": []
+				},
+				{
+					"name": "obter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/pedido/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Enderecos",
+			"item": [
+				{
+					"name": "obterPorCep",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/endereco/78735349"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Maquiagens",
+			"item": [
+				{
+					"name": "incluir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/maquiagem/blush-vermelho/150/incluir"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Skincare",
+			"item": [
+				{
+					"name": "incluir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/skincare/esfoliante-maracuja/200/incluir"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "obterLista",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/produtos/lista"
+					},
+					"response": []
+				},
+				{
+					"name": "excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/produtos/1/excluir"
+					},
+					"response": []
+				},
+				{
+					"name": "obter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/produtos/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
