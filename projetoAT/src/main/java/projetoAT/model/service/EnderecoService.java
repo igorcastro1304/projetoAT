@@ -1,31 +1,17 @@
 package projetoAT.model.service;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import com.google.gson.Gson;
 
+import projetoAT.clients.EnderecoClient;
 import projetoAT.model.domain.Endereco;
 
 public class EnderecoService {
-	private static Map<Integer, Endereco> listaEnderecos = new HashMap<Integer, Endereco>();
 	
-	private static Integer id = 0;
-	
-	public static void incluir(Endereco endereco) {
-		endereco.setId(++id);
+	public static Endereco obterPorCep(String cep) {
+		String enderecoJson = EnderecoClient.obterPorCep(cep);
 		
-		listaEnderecos.put(endereco.getId(), endereco);
+		Endereco endereco = new Gson().fromJson(enderecoJson, Endereco.class);
+		return endereco;
 	}
 	
-	public static void excluir(Integer id) {
-		listaEnderecos.remove(id);
-	}
-	
-	public static Collection<Endereco> obterLista() {
-		return listaEnderecos.values();
-	}
-	
-	public static Endereco obterPorId(Integer id) {
-		return listaEnderecos.get(id);
-	}
 }

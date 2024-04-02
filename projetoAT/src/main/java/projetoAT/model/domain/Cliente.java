@@ -1,14 +1,28 @@
 package projetoAT.model.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
 	private Integer id;
-	private InfoCliente informacao;
+	private String cpf;
+	private String nome;
 	private Endereco endereco;
 	private List<Pedido> pedidos;
-
 	
+	public Cliente() {
+		
+	}
+	
+	public Cliente(String cpf, String nome, Endereco endereco, List<Pedido> pedidos) {
+		super();
+		this.cpf = cpf;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.pedidos = new ArrayList<>();
+	}
+	
+
 	public Integer getId() {
 		return id;
 	}
@@ -16,11 +30,18 @@ public class Cliente {
 		this.id = id;
 	}
 
-	public InfoCliente getInformacao() {
-		return informacao;
+	public String getCpf() {
+		return cpf;
 	}
-	public void setInformacao(InfoCliente informacao) {
-		this.informacao = informacao;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Endereco getEndereco() {
@@ -40,6 +61,6 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "[" + id + " - " + informacao + " - " + endereco + " - " + pedidos + "]";
+		return "[" + id + " - " + cpf + " - " + nome + " - " + endereco + " - " + pedidos + "]";
 	}
 }

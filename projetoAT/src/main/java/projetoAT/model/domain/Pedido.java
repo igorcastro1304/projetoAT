@@ -1,5 +1,6 @@
 package projetoAT.model.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
@@ -11,13 +12,25 @@ public class Pedido {
 	private float valorPedido;
 	
 	
+	public Pedido() {
+		
+	}
+	
+	public Pedido(Cliente cliente, Endereco endereco, List<Produto> produtos) {
+		super();
+		this.cliente = cliente;
+		this.endereco = endereco;
+		this.produtos = new ArrayList<Produto>();
+	}
+	
+	
 	private float calcularDesconto() {
 		
 		for(Produto p : produtos) {
 			valorPedido += p.getValorTotal();
 		}
 		
-		return valorPedido > 1000 ? valorPedido * 0.75f : valorPedido;
+		return valorPedido > 1000 ? valorPedido * 0.8f : valorPedido;
 	}
 	
 	

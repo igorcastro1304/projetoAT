@@ -61,6 +61,6 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "[" + nome + " - " + valorUnitario + " - " + ean + " - " + quantidade + " - " + valorTotal;
+		return "[" + id + " - " + nome + " - " + valorUnitario + " - " + ean + " - " + quantidade + " - " + valorTotal;
 	}
 }

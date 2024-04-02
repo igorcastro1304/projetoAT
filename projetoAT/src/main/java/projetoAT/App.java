@@ -11,6 +11,10 @@ import spark.Spark;
 public class App {
 
 	public static void main(String[] args) {
+		
+		projetoAT.ClienteLoader.main(args);
+		projetoAT.ProdutoLoader.main(args);
+		
 		Spark.port(8080);
 
 		Spark.get("/", (req, res) -> {
@@ -35,10 +39,7 @@ public class App {
 		Spark.delete("/pedido/:id/excluir", PedidoController.excluir);
 		Spark.get("/pedido/:id", PedidoController.obter);
 		
-		Spark.get("/endereco/lista", EnderecoController.obterLista);
-		Spark.post("/endereco/incluir", EnderecoController.incluir);
-		Spark.delete("/endereco/:id/excluir", EnderecoController.excluir);
-		Spark.get("/endereco/:id", EnderecoController.obter);
+		Spark.get("/endereco/:cep", EnderecoController.obterPorCep);
 		
 	}
 }

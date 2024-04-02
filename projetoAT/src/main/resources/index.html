@@ -1,34 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>BBibliotecaApp</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title>BBibliotecaApp</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Loja de Cosméticos</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="/produtos/lista">Produtos</a></li>
-      <li><a href="/skincare/:nome/:valorUnitario/incluir">Pedidos</a></li>
-      <li><a href="#">Clientes</a></li>
-      <li><a href="#">Endereços</a></li>
-    </ul>
-  </div>
-</nav>
-  
-<div class="container">
-  <h3>Gestão de bibliotecas</h3>
-  <p>asf asf asd fasfa.</p>
-</div>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Loja de Cosméticos</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="/produtos/lista">Produtos</a></li>
+				<li><a href="/skincare/:nome/:valorUnitario/incluir">Pedidos</a></li>
+				<li><a href="#">Clientes</a></li>
+				<li><a href="#">Endereços</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<p>
+			Após muito pensar se daria continuidade ou não ao projeto realizado
+			até o TP 3, decidi pedir ajuda à minha namorada e ela me deu a
+			sugestão de fazer um sistema de venda de cosméticos. A ideia dela foi
+			excelente (obrigado por ela meu amor <3), pois bateu com o requisito
+			dos números de classe do projeto e a oportunidade de utilizar algumas
+			regras de negócio também. <br> Para implementar o projeto, foram
+			elaboradas as classes de Produto, Endereco, Cliente, Pedido e
+			Maquiagem e Skincare (subclasses de produto). Embora não se pareça
+			nada com um sistema utilizado no cotidiano, a ideia é apenas
+			manipular os dados do sistema, fazendo alguns cálculos básicos,
+			relacionando as classes e repassando os dados obtidos para uma
+			estrutura de armazenamento ( a escolhida foi o Map para diminuir a
+			complexidade do projeto). <br> Com isso, o projeto foi separado
+			entre 4 camadas:
+		</p>
+
+		<ul>
+			<li><strong>Camada de Domínio -</strong> Utilizada para
+				estabelecer o modelo padrão e regras das nossas classes de negócio.</li>
+			<li><strong>Camada de Serviço -</strong> Faz a conexão entre as
+				camadas e a estrutura de armazenamento.</li>
+			<li><strong>Camada de Controle -</strong> É a responsável por
+				fazer a interação com o usuário.</li>
+			<li><strong>Camada de Client -</strong> Sua função é estabelecer
+				conexão com uma API externa e consumi-la.</li>
+		</ul>
+
+		<p>As classes de domímio foram as classes cruciais para um sistema
+			de vendas: Produto (e suas subclasses Maquiagem e Skincare), Cliente,
+			Endereco e Pedido. Cada classe possui um método de retorno toString e
+			as classes Produto e Pedido possuem métodos para calcularem o
+			desconto de um produto, baseado na regra de negócio estabelecida.
+			Para tanto, caso o valor unitário do produto seja maior que R$ 250,00
+			reais, o produto ganha 10% de desconto e, caso o valor final do
+			pedido excede mil reais, 20% de desconto é aplicado ao produto final.
+		</p>
+
+		<p>Dentro das classes de serviço foram incluídos métodos genéricos
+			para realizar um CRUD (exceto pelo Update) das classes, que contam
+			com os métodos de inclusão, exclusão, listar todos os elementos
+			contidos na estrutura de dados, e listar somente um elemento, trazido
+			através de seu ID. A partir dessa classe, são estabelecidas as rotas,
+			através da camada de controle. Essa camada será a responsável pela
+			interação entre servidor e usuário, onde o usuário solicita uma
+			operação e o servidor retorna uma resposta.</p>
+
+		<p>Por fim, a classe Client do sistema faz o consumo da API
+			externa do ViaCep, onde, através dessa API, um método chamado
+			"obterPorCep" é criado, puxando automaticamente os atributos que a
+			classe Endereco precisa para ocorrer a entrega corretamente.</p>
+
+		<p>
+			Os testes das funcionalidades do sistema podem ser feitos através do
+			arquivo localizado <a href="#">aqui</a>. Todos foram realizados no
+			Postman, permitindo assim chegar às funcionalidades da camada do
+			back-end, antes de ser implementada pelo time de front-end.
+		</p>
+
+		<p>Sei que o código apresenta erro na hora de testar as APIs,
+			portanto, peço humildamente para que no retorno do feedback considere
+			isso na correção e possa me explicar o motivo de estar retornando
+			nulo sendo que o valor já foi atribuído. Muito obrigado desde já!</p>
+	</div>
 
 </body>
 </html>
